@@ -1,0 +1,15 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[UTFPR 2021]{UTFPR2008}
+\abntrefinfo{UTFPR}{UTFPR}{2021}
+{UTFPR. \textbf{Orientação para a entrega de trabalhos acadêmicos}.
+1a. ed. Curitiba, 2021. Dispon{\'\i}vel em:
+  \url{http://www.utfpr.edu.br/biblioteca/trabalhos-academicos/discentes}.
+  Acesso em: 08 nov. 2021.}
+
+\end{thebibliography}

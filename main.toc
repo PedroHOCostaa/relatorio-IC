@@ -1,0 +1,54 @@
+\changetocdepth {4}
+\changetocdepth {50}
+\babel@toc {brazil}{}\relax
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{6}{chapter.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Fundamentação Teórica}}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Extração de Características em Visão Computacional}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Pré-processamento das imagens}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Descritor HOG (Histogram of Oriented Gradients)}{7}{subsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.2.1}Conversão para tons de cinza}{8}{subsubsection.2.1.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.2.2}Normalização para [0,1]}{8}{subsubsection.2.1.2.2}%
+\contentsline {subsubsection}{\numberline {2.1.2.3}Parâmetros específicos utilizados}{8}{subsubsection.2.1.2.3}%
+\contentsline {subsubsection}{\numberline {2.1.2.4}Por que HOG para personagens dos Simpsons}{8}{subsubsection.2.1.2.4}%
+\contentsline {subsubsection}{\numberline {2.1.2.5}Dimensionalidade final}{8}{subsubsection.2.1.2.5}%
+\contentsline {subsection}{\numberline {2.1.3}Histogramas RGB Normalizados}{9}{subsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.3.1}8 bins por canal e normalização}{9}{subsubsection.2.1.3.1}%
+\contentsline {subsection}{\numberline {2.1.4}Descritor Híbrido: HOG + RGB}{9}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Relação entre as Características e os Resultados Obtidos}{10}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Classificadores Avaliados}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Análise Comparativa dos Classificadores}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Ensemble Learning}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Otimização de Hiperparâmetros e Validação Cruzada}{12}{subsection.2.2.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Trabalhos Relacionados}}{13}{chapter.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Materiais e Métodos}}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Materiais}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Métodos}{14}{section.4.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados}}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Escopo do sistema}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Modelagem do sistema}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Apresentação do sistema}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Implementação do sistema}{17}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Discussões (opcional)}{19}{section.5.5}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Conclusão}}{20}{chapter.6}%
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{21}{section*.13}%
+\renewcommand *{\cftappendixname }{AP\^ENDICE \space }
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Título do Apêndice A com um Texto Muito Longo que Pode Ocupar Mais de uma Linha}}{23}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Orçamentos dos Materiais para Montagem da Bancada Experimental}}{25}{appendix.B}%
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Direitos Autorais - Lei N.\textsuperscript {o} 9.610, de 19 de Fevereiro de 1998: Disposições Preliminares}}{27}{anexo.anexochapback.1}%
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Normas para Elaboração de Trabalhos Acadêmicos}}{30}{anexo.anexochapback.2}%
