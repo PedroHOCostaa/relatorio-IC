@@ -1,0 +1,8 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+opencv-python
+scikit-image
+Pillow
+imbalanced-learn
