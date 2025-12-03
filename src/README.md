@@ -33,6 +33,7 @@ Se seus arquivos `.bmp` estiverem soltos dentro de `Train` ou `Valid`, rode `org
 ## Pré-requisitos
 - Python 3.10+.
 - Pacotes: numpy, pandas, scikit-learn, matplotlib, opencv-python, scikit-image, Pillow.
+- Extensão Jupyter no Visual Studio Code.
 
 ## Configuração do Ambiente
 1) Criar e ativar o ambiente virtual:
