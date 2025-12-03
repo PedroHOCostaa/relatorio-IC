@@ -76,11 +76,17 @@ outputs/
 ├── confusion_mlp.png
 ├── confusion_ensemble.png
 ├── report_knn_valid.txt
+├── report_knn_cv.txt
 ├── report_svm_rbf_valid.txt
+├── report_svm_rbf_cv.txt
 ├── report_decision_tree_valid.txt
+├── report_decision_tree_cv.txt
 ├── report_random_forest_valid.txt
+├── report_random_forest_cv.txt
 ├── report_mlp_valid.txt
+├── report_mlp_cv.txt
 ├── report_ensemble_valid.txt
+├── report_ensemble_cv.txt
 ├── metrics_summary.csv
 └── results.json
 ```
