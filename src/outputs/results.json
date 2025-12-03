@@ -1,0 +1,298 @@
+[
+  {
+    "model": "knn",
+    "best_params": {
+      "clf__n_neighbors": 3,
+      "clf__weights": "uniform"
+    },
+    "cv_best_f1_macro": 0.6524821748598838,
+    "val_accuracy": 0.6210526315789474,
+    "val_f1_macro": 0.58,
+    "val_precision_macro": 0.6429718554088303,
+    "val_recall_macro": 0.5604542124542123,
+    "val_cm": [
+      [
+        30,
+        2,
+        2,
+        0,
+        1
+      ],
+      [
+        8,
+        11,
+        4,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        7,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        1,
+        8,
+        0
+      ],
+      [
+        4,
+        2,
+        1,
+        0,
+        3
+      ]
+    ]
+  },
+  {
+    "model": "svm_rbf",
+    "best_params": {
+      "clf__C": 100,
+      "clf__gamma": 0.001,
+      "clf__kernel": "rbf"
+    },
+    "cv_best_f1_macro": 0.7482010244657304,
+    "val_accuracy": 0.6421052631578947,
+    "val_f1_macro": 0.5955488721804512,
+    "val_precision_macro": 0.6226147186147186,
+    "val_recall_macro": 0.5864542124542125,
+    "val_cm": [
+      [
+        30,
+        3,
+        1,
+        1,
+        0
+      ],
+      [
+        4,
+        13,
+        3,
+        0,
+        5
+      ],
+      [
+        2,
+        4,
+        7,
+        0,
+        0
+      ],
+      [
+        3,
+        3,
+        1,
+        5,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        1,
+        6
+      ]
+    ]
+  },
+  {
+    "model": "decision_tree",
+    "best_params": {
+      "clf__max_depth": null,
+      "clf__min_samples_split": 4
+    },
+    "cv_best_f1_macro": 0.5292093826366272,
+    "val_accuracy": 0.6,
+    "val_f1_macro": 0.5824261953585262,
+    "val_precision_macro": 0.6253174603174603,
+    "val_recall_macro": 0.5711721611721612,
+    "val_cm": [
+      [
+        23,
+        2,
+        6,
+        0,
+        4
+      ],
+      [
+        5,
+        15,
+        4,
+        0,
+        1
+      ],
+      [
+        3,
+        2,
+        8,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        2,
+        7,
+        0
+      ],
+      [
+        1,
+        5,
+        0,
+        0,
+        4
+      ]
+    ]
+  },
+  {
+    "model": "random_forest",
+    "best_params": {
+      "clf__max_depth": null,
+      "clf__n_estimators": 300
+    },
+    "cv_best_f1_macro": 0.7385429673525647,
+    "val_accuracy": 0.7157894736842105,
+    "val_f1_macro": 0.6731494213847155,
+    "val_precision_macro": 0.7553920475659606,
+    "val_recall_macro": 0.637069597069597,
+    "val_cm": [
+      [
+        30,
+        3,
+        1,
+        0,
+        1
+      ],
+      [
+        4,
+        20,
+        1,
+        0,
+        0
+      ],
+      [
+        5,
+        2,
+        6,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        1,
+        8,
+        0
+      ],
+      [
+        5,
+        0,
+        0,
+        1,
+        4
+      ]
+    ]
+  },
+  {
+    "model": "mlp",
+    "best_params": {
+      "clf__alpha": 0.0001,
+      "clf__hidden_layer_sizes": [
+        80,
+        40,
+        20
+      ]
+    },
+    "cv_best_f1_macro": 0.7351513584454761,
+    "val_accuracy": 0.6,
+    "val_f1_macro": 0.5523396461476956,
+    "val_precision_macro": 0.5864957264957266,
+    "val_recall_macro": 0.542930402930403,
+    "val_cm": [
+      [
+        26,
+        1,
+        5,
+        1,
+        2
+      ],
+      [
+        5,
+        15,
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        4,
+        7,
+        0,
+        0
+      ],
+      [
+        2,
+        5,
+        1,
+        4,
+        0
+      ],
+      [
+        4,
+        1,
+        0,
+        0,
+        5
+      ]
+    ]
+  },
+  {
+    "model": "ensemble_voting_soft_20",
+    "best_params": "predefined set (20 estimadores variados)",
+    "cv_best_f1_macro": 0.7219132129375619,
+    "val_accuracy": 0.6736842105263158,
+    "val_f1_macro": 0.6387876963219429,
+    "val_precision_macro": 0.6798830409356725,
+    "val_recall_macro": 0.6193113553113553,
+    "val_cm": [
+      [
+        27,
+        1,
+        5,
+        1,
+        1
+      ],
+      [
+        4,
+        18,
+        2,
+        0,
+        1
+      ],
+      [
+        1,
+        5,
+        7,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        1,
+        8,
+        0
+      ],
+      [
+        4,
+        2,
+        0,
+        0,
+        4
+      ]
+    ]
+  }
+]

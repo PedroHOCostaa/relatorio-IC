@@ -1,0 +1,115 @@
+% ATENÇÃO - veja com o seu orientador se você vai ter este capítulo e se este vai ter nome!
+\chapter{Resultado}\label{cap:result}
+
+A seguir iremos apresentar na Tabela \ref{tab:result_cv} os resultados da validação cruzada com k = 10 em cada dos modelos, utilizando a base de dados de treino.
+
+\begin{table}[h!]
+	\centering
+	\caption{Tabela Resultado Validação Cruzada}
+	\label{tab:result_cv}
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Modelo} & Acurácia & Média F1-score \\
+		\hline
+		\textit{Decision Tree}   & 0,5885 & 0,5474\\
+		\hline
+		\textit{Random Forest}   & 0,7566 & 0,7600 \\
+		\hline
+		KNN   & 0,6947 & 0,6774 \\
+		\hline
+		SVM (RBF)   & 0,7522 & 0,7501 \\
+		\hline
+		MLP   & 0,7345 & 0,7402 \\
+		\hline
+		\textit{Ensemble} & 0,7345 & 0,7219 \\ 
+		\hline
+	\end{tabular}
+\end{table}	
+
+Ao analisarmos a tabela a cima, podemos observar que modelo que obteve o maior resultado foi o \textit{Random Forest}, obtendo uma acurácia de 0,7566 e uma média de F1-score de 0,7600. A seguir na Tabela \ref{tab:result_test} podemos observar os resultados da classificação utilizando os modelos treinados com a base para treino, e testando com a base de teste.
+
+\begin{table}[h!]
+	\centering
+	\caption{Tabela Resultado Teste Final}
+	\label{tab:result_test}
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Modelo} & Acurácia & Média F1-score \\
+		\hline
+		\textit{Decision Tree}   & 0,6000 & 0,5824 \\
+		\hline
+		\textit{Random Forest}   & 0,7158 & 0,6731 \\
+		\hline
+		KNN   & 0,6211 & 0,5800 \\
+		\hline
+		SVM (RBF)   & 0,6421 & 0,5955 \\
+		\hline
+		MLP   & 0,6000 & 0,5523 \\
+		\hline
+		\textit{Ensemble} &  0,6737  & 0,6388 \\ 
+		\hline
+	\end{tabular}
+\end{table}	
+
+Podemos observar na Tabela dos Resultados dos testes finais, que assim como nos testes de validação cruzada, o \textit{Random Forest} conseguiu o melhor resultado tanto em acurácia quanto na média do F1-score.
+
+A seguir temos as Figuras referentes a matriz de confusão de cada modelo conseguida com a avaliação do teste realizado.
+
+\begin{figure}[htb]
+	\centering
+	
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão Árvore de Decisão}
+		\includegraphics[width=\linewidth]{figuras/confusion_decision_tree.png}
+		\label{fig:matriz_confuzão_arvore}
+		\fonte{Autoria Própria}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão do \textit{ensemble}}
+		\includegraphics[width=\linewidth]{figuras/confusion_ensemble.png}
+		\label{fig:matriz_confuzão_ensemble}
+		\fonte{Autoria Própria}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão KNN}
+		\includegraphics[width=\linewidth]{figuras/confusion_knn.png}
+		\label{fig:matriz_confuzão_knn}
+		\fonte{Autoria Própria}%% Fonte
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão MLP}
+		\includegraphics[width=\linewidth]{figuras/confusion_mlp.png}
+		\label{fig:matriz_confuzão_mlp}
+		\fonte{Autoria Própria}%% Fonte
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão \textit{Random Forest}}
+		\includegraphics[width=\linewidth]{figuras/confusion_random_forest.png}
+		\label{fig:matriz_confuzão_forest}
+		\fonte{Autoria Própria}%% Fonte
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\captionsetup{width=1.2\textwidth}%% Largura da legenda
+		\caption{Matriz de Confusão SVM}
+		\includegraphics[width=\linewidth]{figuras/confusion_svm_rbf.png}
+		\label{fig:matriz_confuzão_svm}
+		\fonte{Autoria Própria}%% Fonte
+	\end{minipage}
+\end{figure}
+
+
+
+
+
