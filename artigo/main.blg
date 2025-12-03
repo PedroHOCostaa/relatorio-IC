@@ -6,10 +6,6 @@ A level-1 auxiliary file: ./capitulos/cap-conceitos.aux
 A level-1 auxiliary file: ./capitulos/cap-trabalhos-relacionados.aux
 A level-1 auxiliary file: ./capitulos/cap-proposta.aux
 A level-1 auxiliary file: ./capitulos/cap-metodologia.aux
-A level-1 auxiliary file: ./capitulos/cap-experimentos-resultados.aux
-A level-1 auxiliary file: ./capitulos/cap-conclusoes.aux
-A level-1 auxiliary file: ./PosTexto/apendicea.aux
-A level-1 auxiliary file: ./PosTexto/apendiceb.aux
 A level-1 auxiliary file: ./PosTexto/anexoa.aux
 A level-1 auxiliary file: ./PosTexto/anexob.aux
 The style file: abntex2-alf.bst
@@ -35,7 +31,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 9 entries,
             6712 wiz_defined-function locations,
-            1227 strings with 10051 characters,
+            1223 strings with 9930 characters,
 and the built_in function-call counts, 4472 in all, are:
 = -- 519
 > -- 19

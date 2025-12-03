@@ -7,11 +7,11 @@
 \chapter{Introdução}\label{cap:introducao}
 A tarefa de classificação de imagens tem adquirido relevância crescente nas últimas décadas, impulsionada pelo aumento do poder computacional e pela disponibilidade de bases de dados. Em particular, a classificação de personagens animados apresenta desafios específicos, como variações estilísticas, presença de ruído visual, iluminação não padronizada e pequenas diferenças morfológicas entre classes.
 
-Este trabalho investiga técnicas clássicas de aprendizado de máquina aplicadas à classificação de cinco personagens da série animada The Simpsons: \textbf{Bart}, \textbf{Homer}, \textbf{Lisa}, \textbf{Maggie }e \textbf{Marge}. Para isso, uma base de imagens com estrutura de treino e validação foi organizada manualmente, com uma quantidade limitada de exemplos por classe, aproximando-se de cenários reais de bases pequenas (problema conhecido como \textit{small datasets}).
+Este trabalho investiga técnicas clássicas de aprendizado de máquina aplicadas à classificação de cinco personagens da série animada The Simpsons: \textbf{Bart}, \textbf{Homer}, \textbf{Lisa}, \textbf{Maggie }e \textbf{Marge}. Para isso utilizamos a base de dados disponibilizada pelo professor, possui imagens para treino e teste, com uma quantidade limitada de exemplos por classe, aproximando-se de cenários reais de bases pequenas (problema conhecido como \textit{small datasets}).
 
-As imagens passaram por um processo de extração de características combinando \textbf{Histogram of Oriented Gradients (HOG)} e \textbf{histogramas RGB normalizados}, abordagem que busca equilibrar informações estruturais (textura, bordas) e cromáticas (cor dominante de pele, roupa, cabelo etc.), ambas importantes para distinguir personagens visualmente similares.
+Para decidirmos quais características utilizar, e de qual maneira extrai-las, realizamos alguns testes, treinando e medindo a acurácia conseguida utilizando diferentes grupos de características, para assim decidirmos qual utilizar na versão final do código desenvolvido. A característica utilizada foi o Histograma \gls{rgb}.
 
-O pipeline de classificação inclui:
+Os modelos que foram utilizados na aplicação foram os seguintes:
 
 \begin{itemize}
 	\item \textbf{KNN} com tuning de k e pesos
@@ -22,9 +22,6 @@ O pipeline de classificação inclui:
 	\item \textbf{Ensemble Voting} com 20 classificadores heterogêneos
 \end{itemize}
 
+A avaliação segue as exigências acadêmicas: \textbf{validação cruzada estratificada k=10}, métricas macro e matrizes de confusão, além de um conjunto de treino separado, garantindo avaliação robusta.
 
-Um texto curto apresentando o capítulo.
-
-A avaliação segue as exigências acadêmicas: \textbf{validação cruzada estratificada k=10}, métricas macro e matrizes de confusão, além de um conjunto de validação separada (Valid), garantindo avaliação robusta.
-
-Os resultados mostram que a combinação de HOG + histogramas RGB, aliada ao ensemble, oferece desempenho superior, especialmente considerando o conjunto reduzido de amostras.
+O trabalho realizado demonstra que utilizando somente o Histograma \gls{rgb} é possível conseguir resultados interessantes para a classificação de qual personagem está na imagem. E o modelo que conseguiu o melhor resultado com a estratégia abordada foi o \textit{Random Forest}.

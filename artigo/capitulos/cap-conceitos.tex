@@ -3,122 +3,66 @@
 %% O autor deve registrar seu conhecimento sobre a literatura básica do assunto, discutindo e comentando a informação já publicada.
 %% A revisão deve ser apresentada, preferencialmente, em ordem cronológica e por blocos de assunto, procurando mostrar a evolução do tema.
 %% Título e rótulo de capítulo (rótulos não devem conter caracteres especiais, acentuados ou cedilha)
-\chapter{Fundamentação Teórica}\label{cap:fundamentacao}
+\chapter{Materiais}\label{cap:fundamentacao}
 
-\section{Extração de Características em Visão Computacional}
-A etapa de extração de características é central em pipelines tradicionais de visão computacional, especialmente quando o conjunto de dados é reduzido e não se pretende empregar redes neurais profundas. No presente trabalho, buscou-se identificar um conjunto de descritores que fosse capaz de capturar simultaneamente:
+\section{Extração de Características}
+As características utilizadas para treinar os modelos foram escolhidas da seguinte maneira, por meio de pesquisa, conversa com alunos e professores e experiencias previas em atividades na faculdade, levantamos 3 tipos de características que poderiam ser uteis para o treinamento dos modelos, estas foram: Histograma em \gls{rgb}, em \gls{hsi} e o \gls{hog}, mas ao realizarmos os teste obtivemos que o \gls{hog} ruins, e o \gls{hsi} era levemente inferior ao \gls{rgb}, testamos também utilizando o \gls{rgb} em conjunto com os outros dois, mas também obtivemos resultados ruins, então concluímos que utilização somente da característica do histograma \gls{rgb} era nossa melhor opção.
 
-\begin{itemize}
-	\item informações estruturais, relacionadas à forma, contornos e textura dos personagens;
-	\item informações cromáticas, fundamentais para distinguir personagens com paletas de cores distintas;
-	\item Robustez diante da variação de iluminação, pose e ruídos provenientes das imagens originais.
-\end{itemize}
-
-Com esse objetivo, adotou-se uma abordagem combinando Histogram of Oriented Gradients (HOG) e Histogramas de Cores RGB normalizados, ambos extraídos explicitamente na função extract\_features() presente no código final do trabalho.
+Depois de determinarmos que o histograma \gls{rgb} era a melhor característica para este problema, testamos mais de um metodo de sua utilização, acabamos utilizando o histograma em 16 \textit{bins} por canal de cor, ou seja, conseguimos 48 características para cada instancia.
 
 \subsection{Pré-processamento das imagens}
 
 Antes da extração dos descritores, cada imagem passa pelo seguinte processo:
-\textbf{Conversão para RGB}, o uso do formato RGB padroniza os canais cromáticos, uma vez que algumas imagens podem estar em tons de cinza ou paletas indexadas; \textbf{Redimensionamento para 96×96 pixels} Definido em \textbf{IMG\_SIZE = (96, 96)}, esse tamanho reduzido permite a diminuição significativa do custo computacional, normalização da dimensão entre classes, preservação suficiente dos detalhes faciais e do contorno dos personagens, consistência para \textbf{HOG}, cujo desempenho é fortemente dependente da escala da imagem; \textbf{Conversão para array NumPy} Necessário para cálculos matriciais de HOG e histogramas.
+\textbf{Conversão para RGB}, o uso do formato RGB padroniza os canais cromáticos, uma vez que algumas imagens podem estar em tons de cinza ou paletas indexadas; \textbf{Redimensionamento para 96×96 pixels} Definido em \textbf{IMG\_SIZE = (96, 96)}, esse tamanho reduzido permite a diminuição significativa do custo computacional, normalização da dimensão entre classes, preservação suficiente dos detalhes faciais e do contorno dos personagens; \textbf{Conversão para array NumPy} Necessário para cálculos de histogramas.
 
-\subsection{Descritor HOG (Histogram of Oriented Gradients)}
-O descritor HOG, introduzido por Dalal e Triggs (2005), é amplamente utilizado para capturar gradientes locais, orientações de borda e estruturas de forma — aspectos essenciais para diferenciar personagens como Bart, Homer ou Marge. No código, a extração é implementada da seguinte forma:
-\[gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)\]
-\[gray_f = gray.astype(np.float32)/255.0\]
-\[hog_vec = hog(gray_f, **HOG_PARAMS)\]
-
-\subsubsection{Conversão para tons de cinza}
-A conversão facilita a detecção de bordas, pois gradientes são mais informativos em luminância do que em cor.
-
-\subsubsection{Normalização para [0,1]}
-A linha:
-gray\_f = gray.astype(np.float32)/255.0
-melhora a estabilidade numérica da aplicação do \textbf{HOG} e evita saturação.
-
-\subsubsection{Parâmetros específicos utilizados}
-Na tabela a seguir podemos observar os parâmetro utilizados na configuração do \textbf{HOG} e oque eles significam.
-
-\begin{table}[h!]
-	\centering
-	\caption{Tabela das configurações do \textbf{HOG}}
-	\label{tabela-3.1}
-	\begin{tabular}{|l|c|p{10,5cm}|}
-		\hline
-		\textbf{Parâmetro} & \textbf{valor}  & \textbf{Explicação} \\
-		\hline
-		orientations   & 9 & Divide o espaço angular em 9 bins (0°–180°), suficiente para capturar bordas características dos personagens (cabelo serrilhado de Bart, bigode de Ned Flanders caso existisse, etc.)\\
-		\hline
-		pixels\_per\_cell   & (8,8) & Regiões pequenas que capturam gradações locais de textura\\
-		\hline
-		block\_norm   & 'L2-Hys' & Normalização robusta que melhora invariância a luz e contraste\\
-		\hline
-	\end{tabular}
-\end{table}	
-
-\subsubsection{Por que HOG para personagens dos Simpsons}
-A série apresenta personagens com traços simplificados porém muito distintivos, como: O cabelo serrilhado e simétrico de Bart; O formato circular da cabeça e barba de Homer; O cabelo pontudo e irregular de Lisa; O laço e a forma diminuta de Maggie; O elevado volume vertical do cabelo de Marge. HOG é especialmente eficaz para esse cenário, pois privilegia orientações dominantes e contornos nítidos.
-
-\subsubsection{Dimensionalidade final}
-Para imagens 96×96 com estes parâmetros, o HOG gera mais de 3000 atributos por imagem. Essa alta dimensionalidade é conveniente porque: Aumenta o poder discriminativo, favorece classificadores não lineares (como SVM RBF) e permite melhor separabilidade entre classes visualmente próximas.
 
 \subsection{Histogramas RGB Normalizados}
-Embora HOG capture forma e textura, ele não retém informações sobre cor, essenciais neste problema. Para contornar isso, o código extrai histogramas RGB:
-\[h = cv2.calcHist([img],[c],None,[8],[0,256]).flatten()\]
-\[h = h / (h.sum() + 1e-8)\]
-
-Utilizamos o Histogramas de \textbf{RGB} pois os personagens dos Simpsons possuem uma identidade cromática forte:
+A extração de informações sobre cor são essenciais neste problema, esse é o motivo da utilização dos histogramas \gls{rgb} pois os personagens dos Simpsons possuem uma identidade cromática forte:
 
 \begin{table}[h!]
 	\centering
-	\caption{Caracteristicas cromaticas dos Simpsons}
+	\caption{Características cromáticas dos Simpsons}
 	\label{tabela-3.1}
 	\begin{tabular}{|l|c|}
 		\hline
 		\textbf{Personagem} & \textbf{Características cromáticas}\\
 		\hline
 		Bart   & camiseta vermelha, pele amarela vibrante, cabelo amarelo irregular \\
-		\hline
+%		\hline
 		Homer   & camisa branca, barba azul clara \\
-		\hline
+%		\hline
 		Marge   & cabelo azul alto, vestido verde \\
-		\hline
+%		\hline
 		Lisa   & vestido vermelho, colar branco \\
-		\hline
+%		\hline
 		Maggie   & roupa azul-bebê, laço azul \\
 		\hline
 	\end{tabular}
 \end{table}	
 
-Essas cores são informação altamente discriminativa, especialmente considerando que as imagens foram redimensionalizadas para uma baixa resolução (96×96).
+	Essas cores são informação altamente discriminativa, especialmente considerando que as imagens foram redimensionalizadas para uma baixa resolução (96×96).
 
-\subsubsection{8 bins por canal e normalização}
-Um histograma de 8 bins por canal é um compromisso entre: granularidade suficiente para distinguir tons, dimensionalidade moderada (8×3 = 24 atributos), robustez a ruídos e variação de iluminação.
+\subsubsection{16 bins por canal e normalização}
+Um histograma de 16 bins por canal é um compromisso entre: granularidade suficiente para distinguir tons, dimensionalidade moderada (8×3 = 24 atributos), robustez a ruídos e variação de iluminação.
 
 A normalização: $ h = h / (h.sum() + 1e-8) $ garante que variações de exposição, iluminação ou brilho não distorçam os histogramas.
 
-\subsection{Descritor Híbrido: HOG + RGB}
-Essa estratégia híbrida é considerada “best practice” em pipelines clássicos de visão computacional por três motivos:
+\subsection{Descritor \gls{rgb}}
+Depois de calcular o histograma de cada um dos três canais, concatenamos cada canal em somente um, assim tendo 48 características. Na prática, esse descritor permite que modelos simples (como KNN ou Decision Tree) já capturem boa parte das diferenças visuais entre classes, enquanto modelos mais complexos (SVM, MLP e Random Forest) exploram melhor a riqueza estrutural do vetor.
 
-\begin{itemize}
-	\item complementaridade dos descritores (textura + cor)
-	\item robustez a ruídos, pois erros de forma podem ser compensados por cor e vice-versa
-	\item melhor funcionamento em cenários de poucos dados, onde CNNs profundas tendem a sobreajustar
-\end{itemize}
-
-Na prática, esses dois descritores permitem que modelos simples (como KNN ou Decision Tree) já capturem boa parte das diferenças visuais entre classes, enquanto modelos mais complexos (SVM, MLP e Random Forest) exploram melhor a riqueza estrutural do vetor.
+.
 
 \subsection{Relação entre as Características e os Resultados Obtidos}
 Observando os resultados das matrizes de confusão (arquivos enviados), é possível verificar que:
 \begin{itemize}
 	\item Classes com padrões de cor muito distintos (ex.: Marge e Maggie) tendem a se beneficiar do histograma RGB.
-	\item Classes com padrões estruturais fortes (ex.: Bart e Lisa) são bem capturadas pelo HOG.
 	\item Personagens visualmente mais próximos (ex.: Homer × Bart ou Lisa × Maggie) apresentaram confusões previsíveis, mitigadas parcialmente pelo ensemble.
 \end{itemize}
 
 Assim, o uso combinado de HOG + histogramas de cor foi fundamental para permitir que os classificadores produzissem resultados consistentes mesmo em uma base pequena e com baixa resolução.
 
 \section{Classificadores Avaliados}
-Para a etapa de classificação das características extraídas (HOG e Histogramas de Cor), foram selecionados cinco algoritmos distintos, visando explorar diferentes comportamentos estatísticos. Os modelos escolhidos foram:
+Para a etapa de classificação das características extraídas (e Histogramas de Cor), foram selecionados cinco algoritmos distintos, visando explorar diferentes comportamentos estatísticos. Os modelos escolhidos foram:
 
 \begin{itemize}
 	\item \textbf{K-Nearest Neighbors (KNN)}: Um classificador baseado em instância que rotula amostras com base na classe majoritária entre os k vizinhos mais próximos.
@@ -153,36 +97,6 @@ Modelo final combinado:
 
 Em votação \textbf{soft}, utilizando probabilidades médias.
 
-\begin{table}[h!]
-	\centering
-	\caption{Tabela das configurações do \textbf{HOG}}
-	\label{tabela-3.1}
-	\begin{tabular}{|l|c|c|}
-		\hline
-		\textbf{Modelo} & \textbf{Acurácia (Val)} & \textbf{F1-Score Macro (Val)} \\
-		\hline
-		Decision Tree   & 38,95\% & 0,355\\
-		\hline
-		Random Forest   & 47,37\% & 0,266\\
-		\hline
-		KNN   & 45,26\% & 0,405\\
-		\hline
-		SVM (RBF)   & 53,68\% & 0,395\\
-		\hline
-		MLP   & 51,58\% & 0,419\\
-		\hline
-		Ensemble (voting) & 61,05\% & 0,510\\
-		\hline
-	\end{tabular}
-\end{table}	
-
-\subsection{Ensemble Learning}
-
-A estratégia de Ensemble Learning (Voting Classifier) provou ser a abordagem mais eficaz para este problema, superando todos os modelos individuais em todas as métricas avaliadas.
-
-O Ensemble atingiu uma acurácia de \textbf{61,05\%}, um bom aumento em relação ao melhor modelo individual (SVM com \textbf{53,68\%}). Ênfase também no F1-Score que subiu para 0,510, evidenciando que o comitê conseguiu generalizar melhor para as classes minoritárias onde os modelos individuais falharam.
-
-A matriz de confusão do Ensemble revela que ele manteve a alta taxa de acerto nas classes dominantes (\textbf{31/35} na Classe 0), mas, diferentemente do Random Forest, conseguiu recuperar amostras das classes difíceis (4 acertos na Classe 2 e 4 acertos na Classe 3). Isso valida a hipótese de que a combinação de classificadores com diferentes vieses (KNN, SVM, Árvores e Redes Neurais) cria uma fronteira de decisão mais robusta e menos sujeita a overfitting em características específicas.
 
 \subsection{Otimização de Hiperparâmetros e Validação Cruzada}
 Para garantir que os resultados não fossem enviesados por uma única divisão de dados ou por configurações arbitrárias, adotou-se um protocolo rigoroso de validação.
@@ -193,11 +107,11 @@ Para cada algoritmo individual, foi executada uma busca exaustiva de hiperparâm
 
 \begin{table}[h!]
 	\centering
-	\caption{Tabela das configurações do \textbf{HOG}}
+	\caption{Tabela de Hiperparâmetros}
 	\label{tabela-3.1}
 	\begin{tabular}{|l|c|}
 		\hline
-		\textbf{Modelo} & \textbf{Hiperparâmetros Avaliados}\\
+		\textbf{Modelo} & Hiperparâmetros\\
 		\hline
 		Decision Tree   & k={3, 5, 7, 9}Pesos: ‘uniform’ e ‘distance’ \\
 		\hline

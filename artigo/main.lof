@@ -1,3 +1,7 @@
 \babel@toc {brazil}{}\relax
-\contentsline {figure}{\numberline {1}{\ignorespaces Tela de acesso ao Cadastro de Pacientes.\relax }}{18}{figure.caption.9}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Sítio: Normas para Elaboração de Trabalhos Acadêmicos.\relax }}{30}{figure.caption.17}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Matriz de Confusão Árvore de Decisão\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Matriz de Confusão do \textit {ensemble}\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Matriz de Confusão KNN\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Matriz de Confusão MLP\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Matriz de Confusão \textit {Random Forest}\relax }}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Matriz de Confusão SVM\relax }}{10}{figure.caption.8}%
