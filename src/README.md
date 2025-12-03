@@ -1,6 +1,6 @@
 # Classificação de Imagens dos Simpsons (Cor + 5 Classificadores + Ensemble)
 
-Trabalho prático de Inteligência Artificial para classificação de personagens dos Simpsons. As imagens `.bmp` são redimensionadas para `96x96`, recebem descritores HOG + histogramas de cor RGB e são avaliadas com k-NN, Árvore de Decisão, Random Forest, SVM-RBF, MLP e um ensemble de votação com 20 classificadores. Todo o treinamento é feito em 10-fold stratified cross-validation sobre o conjunto Train, e a validação final é feita no conjunto Valid fornecido.
+Trabalho prático de Inteligência Artificial para classificação de personagens dos Simpsons. As imagens `.bmp` são redimensionadas para `96x96`, recebem histogramas de cor RGB e são avaliadas com k-NN, Árvore de Decisão, Random Forest, SVM-RBF, MLP e um ensemble de votação com 20 classificadores. Todo o treinamento é feito em 10-fold stratified cross-validation sobre o conjunto Train, e a validação final é feita no conjunto Valid fornecido.
 
 ## Visão Geral
 - Classes: Bart, Homer, Lisa, Maggie e Marge.
