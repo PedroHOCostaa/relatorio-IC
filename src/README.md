@@ -94,9 +94,7 @@ simpsons/
 ├── data/              # imagens (Train/Valid)
 ├── outputs/           # resultados gerados pelo treinamento
 ├── organizar.py       # script para organizar as pastas de classe
-└── src/
-    ├── features.py    # (reservado) utilitários de features
-    └── train_eval.py  # pipeline principal: carga, extração, treino, avaliação
+└── train_eval.ipynb   # pipeline principal: carga, extração, treino, avaliação
 ```
 
 ## Observações
