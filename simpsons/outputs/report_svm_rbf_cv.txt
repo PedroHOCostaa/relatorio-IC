@@ -1,0 +1,13 @@
+Best Params: {'clf__C': 100, 'clf__gamma': 0.001, 'clf__kernel': 'rbf'}
+
+              precision    recall  f1-score   support
+
+        bart     0.7792    0.7692    0.7742        78
+       homer     0.7288    0.7049    0.7167        61
+        lisa     0.7714    0.8182    0.7941        33
+      maggie     0.7188    0.7667    0.7419        30
+       marge     0.7391    0.7083    0.7234        24
+
+    accuracy                         0.7522       226
+   macro avg     0.7475    0.7535    0.7501       226
+weighted avg     0.7522    0.7522    0.7519       226
