@@ -1,0 +1,11 @@
+              precision    recall  f1-score   support
+
+        bart     0.6122    0.8571    0.7143        35
+       homer     0.6471    0.4400    0.5238        25
+        lisa     0.4667    0.5385    0.5000        13
+      maggie     0.8889    0.6667    0.7619        12
+       marge     0.6000    0.3000    0.4000        10
+
+    accuracy                         0.6211        95
+   macro avg     0.6430    0.5605    0.5800        95
+weighted avg     0.6351    0.6211    0.6078        95
